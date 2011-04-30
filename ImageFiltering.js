@@ -75,7 +75,6 @@ ImageFiltering.prototype.spatialFiltering = function(filter, size_f) {
                     /* フィルタリング */
                     for (n = from; n <= to; n++) {
                         for (m = from; m <= to; m++) {
-                            total += filter[(n + init) * size_f + m + init];
                             sum += src.getPixel(x + m, y + n) * filter[(n + init) * size_f + m + init];
                         }
                     }
@@ -145,8 +144,6 @@ ImageFiltering.prototype.spatialFiltering = function(filter, size_f) {
                     /* フィルタリング */
                     for (n = from; n <= to; n++) {
                         for (m = from; m <= to; m++) {
-                            total += filter[(n + init) * size_f + m + init];
-
                             pixel = src.getPixel(x + m, y + n);
                             sumR += pixel.R * filter[(n + init) * size_f + m + init];
                             sumG += pixel.G * filter[(n + init) * size_f + m + init];

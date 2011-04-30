@@ -1,0 +1,29 @@
+REAME
+
+IplImage.js
+ Canvasのラッパークラス
+
+ImageLoader.js
+ IplImageのファクトリメソッド
+
+ImageFiltering.js
+ 画像フィルタリングクラス．
+ EdgeDetector，Sharpening，Smoothingのスーパークラス
+
+EdgeDetector.js
+ 画像のエッジ検出機能を提供するクラス
+
+Sharpening.js
+ 画像の鮮鋭化機能を提供するクラス
+
+Smoothing.js
+ 画像の平滑化を提供するクラス
+
+main.js
+ サンプルJS
+
+filtering.html
+ サンプルHTML
+
+lena.png
+ サンプル画像
