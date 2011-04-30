@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="../../../css/screen.css" type="text/css" media="all">
     <script type="text/javascript" src="./IplImage.js"></script>
     <script type="text/javascript" src="./ImageLoader.js"></script>
-    <script type="text/javascript" src="./Smooth.js"></script>
+    <script type="text/javascript" src="./ImageFiltering.js"></script>
+    <script type="text/javascript" src="./Smoothing.js"></script>
     <script type="text/javascript" src="./EdgeDetector.js"></script>
+    <script type="text/javascript" src="./Sharpening.js"></script>
     <script type="text/javascript" src="./main.js"></script>
   </head>
 
@@ -34,6 +36,9 @@
           <input type="button" name="average" value="平均化" onClick="goAverage()">
           <input type="button" name="gaussian" value="ガウシアン" onClick="goGaussian()">
           <input type="button" name="median" value="メディアン" onClick="goMedian()">
+          <p>鮮鋭化</p>
+          <input type="button" name="sharpening4" value="鮮鋭化(4近傍)" onClick="goSharpening4()">
+          <input type="button" name="sharpening8" value="鮮鋭化(8近傍)" onClick="goSharpening8()">
           <br>
           <p>エッジ検出</p>
           <input type="button" name="prewitt" value="プリューウィット(横)" onClick="goPrewitt()">

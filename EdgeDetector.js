@@ -1,68 +1,13 @@
 
 /*
- * コンストラクタ
+ * エッジ検出クラス
  */
 function EdgeDetector(grayImage) {
-    this.src = grayImage;
+    // コンストラクタチェーン
+    ImageFiltering.call(this, grayImage);
 }
 
-/**
- * 空間フィルタリング
- * @param[in] filter フィルタ(一次元配列を想定)
- * @param[in] size_f フィルタのサイズ(3 x 3なら3と指定)
- */
-EdgeDetector.prototype.spatialFiltering = function(filter, size_f) {
-    var init = Math.floor(size_f / 2);
-    var from = - init;
-    var to = init;
-
-    var result = this.src.copy();
-
-    var sum;
-    var total; // 正規化用フィルタ合計値
-    var n, m;
-
-    for (var y = 0; y < this.src.height; y++) {
-        for (var x = 0; x < this.src.width; x++) {
-            sum = 0;
-            total = 0;
-
-            // 端か?
-            if ( x - init < 0 || x + init >= this.src.width
-                    || y - init < 0 || y + init >= this.src.height ) { // yes
-
-                /* フィルタリング */
-                for (n = from ; n <= to; n++) {
-                    for (m = from; m <= to; m++) {
-                        if ( x + m < 0 || x + m >= this.src.width
-                                || y + n < 0 || y + n >= this.src.height ) {
-                            continue;
-                        }
-
-                        total += filter[(n + init) * size_f + m + init];
-                        sum += this.src.getPixel(x + m, y + n) * filter[(n + init) * size_f + m + init];
-
-                    }
-                }
-
-                if (total > 0) sum /= total;
-
-            } else { // no
-                /* フィルタリング */
-                for (n = from; n <= to; n++) {
-                    for (m = from; m <= to; m++) {
-                        sum += this.src.getPixel(x + m, y + n) * filter[(n + init) * size_f + m + init];
-                    }
-                }
-            }
-
-            result.setPixel(x, y, Math.floor(Math.abs(sum)));
-        }
-    }
-
-    return result;
-
-}
+EdgeDetector.prototype = new ImageFiltering();
 
 /**
  * 3x3のプリューウィットフィルタ(横方向)を返す

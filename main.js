@@ -6,7 +6,7 @@ function goAverage() {
     var loader = new ImageLoader("myCanvas", "image");
     var img = loader.loadImage(3);
 
-    var smooth = new Smooth(img);
+    var smooth = new Smoothing(img);
 
     /* 空間フィルタリング */
     var filter = smooth.createAveragingFilter(5);
@@ -23,7 +23,7 @@ function goGaussian() {
     var loader = new ImageLoader("myCanvas", "image");
     var img = loader.loadImage(3);
 
-    var smooth = new Smooth(img);
+    var smooth = new Smoothing(img);
 
     /* 空間フィルタリング */
     var filter = smooth.createGaussianFilter(5, 2.0);
@@ -40,8 +40,42 @@ function goMedian() {
     var loader = new ImageLoader("myCanvas", "image");
     var img = loader.loadImage(3);
 
-    var smooth = new Smooth(img);
+    var smooth = new Smoothing(img);
     var result = smooth.medianFilltering(3);
+
+    /* セット */
+    loader.saveImage(result);
+}
+
+/**
+ * 鮮鋭化フィルタ(4近傍)
+ */
+function goSharpening4() {
+    var loader = new ImageLoader("myCanvas", "image");
+    var img = loader.loadImage(3);
+
+    var sharp = new Sharpening(img);
+
+    /* 空間フィルタリング */
+    var filter = sharp.createSharpeningFilter(4, 0.5);
+    var result = sharp.spatialFiltering(filter, 3);
+
+    /* セット */
+    loader.saveImage(result);
+}
+
+/**
+ * 鮮鋭化フィルタ(8近傍)
+ */
+function goSharpening8() {
+    var loader = new ImageLoader("myCanvas", "image");
+    var img = loader.loadImage(3);
+
+    var sharp = new Sharpening(img);
+
+    /* 空間フィルタリング */
+    var filter = sharp.createSharpeningFilter(8, 0.5);
+    var result = sharp.spatialFiltering(filter, 3);
 
     /* セット */
     loader.saveImage(result);
