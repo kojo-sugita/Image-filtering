@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>JSTAP - HTML5による画像のフィルタリング</title>
+    <link rel="stylesheet" href="../../../css/screen.css" type="text/css" media="all">
+    <script type="text/javascript" src="./IplImage.js"></script>
+    <script type="text/javascript" src="./ImageLoader.js"></script>
+    <script type="text/javascript" src="./Smooth.js"></script>
+    <script type="text/javascript" src="./EdgeDetector.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div id="header"></div>
+
+      <!--menu start-->
+      <div id="topic-path">
+        <p><a href="http://jstap.web.fc2.com">Top</a> &gt; <a href="../html5.html">HTML5</a> &gt; <a href="#">Filtering</a></p>
+      </div>
+
+      <a name="main"></a>
+
+      <!--contents start-->
+      <div id="contents">
+        <h2><a name="jump01"></a>HTML5@Filtering</h2>
+
+        <div id="image-area">
+          <p><b>オリジナル画像</b></p>
+          <img src="./lena.png"></img>
+          <br>
+          <p>平滑化</p>
+          <input type="button" name="average" value="平均化" onClick="goAverage()">
+          <input type="button" name="gaussian" value="ガウシアン" onClick="goGaussian()">
+          <input type="button" name="median" value="メディアン" onClick="goMedian()">
+          <br>
+          <p>エッジ検出</p>
+          <input type="button" name="prewitt" value="プリューウィット(横)" onClick="goPrewitt()">
+          <input type="button" name="sobel" value="ソーベル(縦)" onClick="goSobel()">
+          <input type="button" name="laplacian" value="ラプラシアン" onClick="goLaplacian()">
+          <br>
+          <br>
+          <p><b>平滑化画像</b></p>
+          <img src="./lena.png" id="image" style="display: none">
+          <canvas id="myCanvas" width="256" height="256">canvasに対応したブラウザーで実行してください</canvas>
+        </div>
+        <!-- image-area end -->
+      </div>
+
+      <div id="footer">
+        <hr />
+        <p>
+        &copy; Copyright 2008,
+        <a href="index.html">JSTAP</a>
+        - Created by
+        <a href="mailto:kojo.sugita@gmail.com">Kojo Sugita</a>
+        </p>
+      </div>
+      <!-- footer end-->
+    </div>
+    <!--wrap end-->
+  </body>
+</html>
+
